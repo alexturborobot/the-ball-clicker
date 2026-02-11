@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Circle Clicker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LEFT SIDE BUTTONS -->
+    <div id="leftButtons">
+        <button id="toMainBtn">Main</button>
+        <button id="toMultiplyBtn">Multiply Points</button>
+        <button id="toUpgradesBtn">Upgrades</button>
+        <button id="toLeaderboardsBtn">Leaderboards</button>
+    </div>
+
+    <!-- SCORE (ALWAYS VISIBLE) -->
+    <div id="score">points = 0</div>
+
+    <!-- GAME PAGE -->
+    <div id="gamePage">
+        <div id="circle"></div>
+    </div>
+
+    <!-- MULTIPLY PAGE -->
+    <div id="multiplyPage">
+        <div id="randomBox"></div>
+        <input type="number" id="multiplierInput" placeholder="2-9">
+        <button id="multiplyBtn">Multiply</button>
+        <p id="multiplyRules">
+            Multiplying rules:<br>
+            Enter a number from 2 to 9<br>
+            You need more than 20 points<br>
+            Bigger number = multiply<br>
+            Smaller number = divide<br>
+            40 second cooldown<br>
+            No crying if you lose!
+        </p>
+    </div>
+
+    <!-- UPGRADES PAGE -->
+    <div id="upgradesPage">
+        <div id="upgradesContainer">
+            <p id="currentPoints">Points = 0</p>
+            <div id="upgradeBox">
+                <p>×2</p>
+                <p>Level: <span id="upgradeLevel">1</span></p>
+                <p>Price: 100</p>
+                <button id="upgradeBtn">UPGRADE</button>
+            </div>
+        </div>
+        <div id="blueBallBox">
+            <p>Blue Ball</p>
+            <p>Price: <span id="blueBallPrice">1000</span></p>
+            <button id="blueBallBtn">BUY</button>
+        </div>
+    </div>
+
+    <!-- LEADERBOARDS PAGE -->
+    <div id="leaderboardsPage" style="display:none; padding:20px; color:white; background-color:#222; text-align:center;">
+        <h2>Global Leaderboards</h2>
+        
+        <button id="applyBtn" style="padding:10px 20px; font-size:18px; cursor:pointer; background-color:#28a745; color:white; border:none; border-radius:8px; margin-top:10px;">Apply</button>
+        
+        <!-- Popup for entering name -->
+        <div id="applyPopup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+            background:#333; padding:20px; border-radius:10px; box-shadow:0 0 10px black; z-index:3000;">
+            <label for="playerName" style="color:white; font-size:18px;">Enter your name:</label><br>
+            <input type="text" id="playerName" placeholder="Your name" style="margin-top:10px; padding:5px 10px; font-size:16px;"><br>
+            <button id="submitNameBtn" style="margin-top:10px; padding:8px 16px; font-size:16px; cursor:pointer; background-color:#007bff; color:white; border:none; border-radius:6px;">Submit</button>
+            <button id="closePopupBtnLeader" style="margin-top:10px; padding:8px 16px; font-size:16px; cursor:pointer; background-color:#dc3545; color:white; border:none; border-radius:6px;">Cancel</button>
+        </div>
+
+        <!-- Leaderboard table -->
+        <table id="leaderboardTable" style="margin:20px auto; width:80%; text-align:left; border-collapse:collapse; color:white;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Entries added dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- COOLDOWN POPUP -->
+    <div id="cooldownPopup">
+        <div id="popupContent">
+            <p>You have to wait before multiplying again!</p>
+            <button id="closePopupBtn">Okay</button>
+        </div>
+    </div>
+
+    <audio id="bgMusic" src="bgm.mp3" loop></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
